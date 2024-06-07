@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sshagent(['worker-node-key']){
+                sshagent(['ubuntu (ssh worker node key)']){
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@worker-node "docker pull $DOCKER_USER/lab-4-node-app:latest && docker run -d -p 80:80 $DOCKER_USER/lab-4-node-app:latest"'
                 }
             }
